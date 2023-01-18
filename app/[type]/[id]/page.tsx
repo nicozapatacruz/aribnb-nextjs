@@ -139,7 +139,7 @@ export default function Post({ params }) {
           <p className="leading-8 text-lg">{description}</p>
         </div>
         <div className="w-[35%] border-2 rounded-2xl border-gray-500 p-6 ">
-          <div className="flex gap-2 items-center">
+          <div className="flex flex-wrap gap-2 items-center">
             <p className="text-xl">
               <strong>
                 {price.toLocaleString("es-CO", {
@@ -152,20 +152,22 @@ export default function Post({ params }) {
               </strong>
             </p>
             <p>night</p>
-            {rating > 0 ? (
-              <>
-                <div className="flex items-center gap-1 text-xs">
-                  <i className="fa-solid fa-star"></i>
-                  <p>{rating}</p>
-                </div>
-              </>
-            ) : null}
-            {reviews > 0 ? (
-              <>
-                <p>·</p>
-                <p className="text-gray-400 underline text-xs">{reviews} reviews</p>
-              </>
-            ) : null}
+            <div className="flex gap-1 items-center">
+              {rating > 0 ? (
+                <>
+                  <div className="flex items-center gap-1 text-xs">
+                    <i className="fa-solid fa-star"></i>
+                    <p>{rating}</p>
+                  </div>
+                </>
+              ) : null}
+              {reviews > 0 ? (
+                <>
+                  <p>·</p>
+                  <p className="text-gray-400 underline text-xs">{reviews} reviews</p>
+                </>
+              ) : null}
+            </div>
           </div>
           <hr className="my-8 bg-gray-500"></hr>
           <h2 className="pb-3 text-xl">
