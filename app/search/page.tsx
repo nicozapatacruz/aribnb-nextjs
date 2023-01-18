@@ -27,7 +27,7 @@ export default function SearchPage() {
         </div>
       ) : (
         <div className="w-full text-2xl text-center pt-24">
-          <h1>No posts found with the search &ldquo; {search} &rdquo;.</h1>
+          <h1>No posts found with the search &ldquo; {search} &rdquo;</h1>
           <i className="fa-light fa-shop-slash text-8xl pt-10"></i>
         </div>
       )}

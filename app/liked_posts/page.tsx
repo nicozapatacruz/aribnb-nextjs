@@ -21,8 +21,8 @@ export default function LikedPosts() {
         </div>
       ) : (
         <div className="w-full text-2xl text-center pt-24">
-          <h1>You haven&apos;t liked any post.</h1>
-          <h1 className="pt-4">Like the ones you like so you can see them here.</h1>
+          <h1>You haven&apos;t liked any post</h1>
+          <h1 className="pt-4">Like the ones you like so you can see them here</h1>
           <i className="fa-light fa-heart text-8xl pt-10 hover:text-bnb-pink"></i>
         </div>
       )}
