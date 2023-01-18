@@ -87,7 +87,7 @@ export default function Post({ params }) {
           ) : null}
           {reviews > 0 ? (
             <>
-              <p>{reviews}</p>
+              <p>{reviews} reviews</p>
               <p>
                 <strong>·</strong>
               </p>
@@ -158,10 +158,14 @@ export default function Post({ params }) {
                   <i className="fa-solid fa-star"></i>
                   <p>{rating}</p>
                 </div>
-                <p>·</p>
               </>
             ) : null}
-            {reviews > 0 ? <p className="text-gray-400 underline text-xs">{reviews} reviews</p> : null}
+            {reviews > 0 ? (
+              <>
+                <p>·</p>
+                <p className="text-gray-400 underline text-xs">{reviews} reviews</p>
+              </>
+            ) : null}
           </div>
           <hr className="my-8 bg-gray-500"></hr>
           <h2 className="pb-3 text-xl">
