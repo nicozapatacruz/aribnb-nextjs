@@ -78,7 +78,7 @@ export default function Post({ params }) {
             <>
               <div className="flex items-center gap-1">
                 <i className="fa-solid fa-star"></i>
-                <p>{rating}</p>
+                <p>{rating.toFixed(Math.max(1, (rating.toString().split(".")[1] || []).length))}</p>
               </div>
               <p>
                 <strong>·</strong>
@@ -157,7 +157,7 @@ export default function Post({ params }) {
                 <>
                   <div className="flex items-center gap-1 text-xs">
                     <i className="fa-solid fa-star"></i>
-                    <p>{rating}</p>
+                    <p>{rating.toFixed(Math.max(1, (rating.toString().split(".")[1] || []).length))}</p>
                   </div>
                 </>
               ) : null}

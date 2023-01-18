@@ -25,7 +25,7 @@ export default function Post({ data, likedPosts, setLikedPosts }) {
         {rating > 0 ? (
           <div className="flex items-center gap-1">
             <i className="fa-solid fa-star"></i>
-            <p>{rating}</p>
+            <p>{rating.toFixed(Math.max(1, (rating.toString().split(".")[1] || []).length))}</p>
           </div>
         ) : null}
       </div>
