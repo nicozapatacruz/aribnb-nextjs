@@ -19,7 +19,7 @@ export default function Post({ data, likedPosts, setLikedPosts }) {
         </button>
       </div>
       <div className="flex justify-between pt-2">
-        <h1 className="text-xl">
+        <h1 className="text-xl truncate">
           <strong>{location}</strong>
         </h1>
         {rating > 0 ? (
