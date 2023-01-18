@@ -22,10 +22,12 @@ export default function Post({ data, likedPosts, setLikedPosts }) {
         <h1 className="text-xl">
           <strong>{location}</strong>
         </h1>
-        <div className="flex items-center gap-1">
-          <i className="fa-solid fa-star"></i>
-          <p>{rating}</p>
-        </div>
+        {rating > 0 ? (
+          <div className="flex items-center gap-1">
+            <i className="fa-solid fa-star"></i>
+            <p>{rating}</p>
+          </div>
+        ) : null}
       </div>
       <div>
         <p className="text-gray-400">Guests: {guests}</p>

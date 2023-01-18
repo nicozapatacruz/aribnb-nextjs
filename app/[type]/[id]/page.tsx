@@ -74,17 +74,25 @@ export default function Post({ params }) {
       </h1>
       <div className="flex justify-between pt-3">
         <div className="flex items-center gap-2">
-          <div className="flex items-center gap-1">
-            <i className="fa-solid fa-star"></i>
-            <p>{rating}</p>
-          </div>
-          <p>
-            <strong>·</strong>
-          </p>
-          <p>{reviews}</p>
-          <p>
-            <strong>·</strong>
-          </p>
+          {rating > 0 ? (
+            <>
+              <div className="flex items-center gap-1">
+                <i className="fa-solid fa-star"></i>
+                <p>{rating}</p>
+              </div>
+              <p>
+                <strong>·</strong>
+              </p>
+            </>
+          ) : null}
+          {reviews > 0 ? (
+            <>
+              <p>{reviews}</p>
+              <p>
+                <strong>·</strong>
+              </p>
+            </>
+          ) : null}
           <p>{location}</p>
         </div>
         <button
@@ -144,12 +152,16 @@ export default function Post({ params }) {
               </strong>
             </p>
             <p>night</p>
-            <div className="flex items-center gap-1 text-xs">
-              <i className="fa-solid fa-star"></i>
-              <p>{rating}</p>
-            </div>
-            <p>·</p>
-            <p className="text-gray-400 underline text-xs">{reviews} reviews</p>
+            {rating > 0 ? (
+              <>
+                <div className="flex items-center gap-1 text-xs">
+                  <i className="fa-solid fa-star"></i>
+                  <p>{rating}</p>
+                </div>
+                <p>·</p>
+              </>
+            ) : null}
+            {reviews > 0 ? <p className="text-gray-400 underline text-xs">{reviews} reviews</p> : null}
           </div>
           <hr className="my-8 bg-gray-500"></hr>
           <h2 className="pb-3 text-xl">
