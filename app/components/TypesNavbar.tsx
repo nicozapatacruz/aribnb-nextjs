@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import types from "../db/postTypes";
 
@@ -6,7 +7,8 @@ export default function TypesNavbar({ postType, setPostType }) {
   return (
     <div className="flex justify-between pt-12">
       {types.map(({ label, type }) => (
-        <button
+        <Link
+          href={`/${type}`}
           key={type}
           className={
             postType === type
@@ -21,7 +23,7 @@ export default function TypesNavbar({ postType, setPostType }) {
           <div className="m-auto">
             <p>{label}</p>
           </div>
-        </button>
+        </Link>
       ))}
     </div>
   );
