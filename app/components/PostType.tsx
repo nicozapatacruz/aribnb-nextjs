@@ -1,15 +1,30 @@
 import PostBox from "@/app/components/PostBox";
+import { use } from "react";
 
-export default function PostType({ data, postType, likedPosts, setLikedPosts }) {
+const getData = async () => {
+  return await (
+    await fetch("https://aooy8uembg.execute-api.us-east-1.amazonaws.com/default/getPostsData", {
+      mode: "no-cors",
+      cache: "force-cache",
+    })
+  ).json();
+};
+
+import data from "../db/data";
+
+export default function PostType({ postType, likedPosts, setLikedPosts }) {
+  //const data = use(getData());
   return (
     <>
       {data.length ? (
         <div className="grid grid-cols-4 items-center justify-between gap-5 w-full pt-12">
-          {data.map((data) => (
-            <div key={data.id}>
-              <PostBox data={data} likedPosts={likedPosts} setLikedPosts={setLikedPosts} />
-            </div>
-          ))}
+          {data
+            .filter((object) => object.type === postType)
+            .map((data) => (
+              <div key={data.id}>
+                <PostBox data={data} likedPosts={likedPosts} setLikedPosts={setLikedPosts} />
+              </div>
+            ))}
         </div>
       ) : (
         <div className="w-full text-2xl text-center pt-24">

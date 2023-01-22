@@ -1,6 +1,7 @@
 "use client";
 import Navbar from "@/app/components/Navbar";
 import PostBox from "@/app/components/PostBox";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import normalizeText from "../services/normalizeText";
@@ -8,7 +9,7 @@ import normalizeText from "../services/normalizeText";
 import data from "../db/data";
 
 export default function SearchPage() {
-  const [likedPosts, setLikedPosts] = useState(JSON.parse(localStorage.getItem("likedPosts")) ?? []);
+  const [likedPosts, setLikedPosts] = useLocalStorage("likedPosts", []);
   const searchParams = useSearchParams();
   const search = searchParams.get("search");
   const regex = normalizeText(search);

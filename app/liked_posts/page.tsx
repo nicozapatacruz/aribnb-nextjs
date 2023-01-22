@@ -1,12 +1,13 @@
 "use client";
 import Navbar from "@/app/components/Navbar";
 import PostBox from "@/app/components/PostBox";
-import { useState, useEffect } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useEffect } from "react";
 
 import data from "../db/data";
 
 export default function LikedPosts() {
-  const [likedPosts, setLikedPosts] = useState(JSON.parse(localStorage.getItem("likedPosts")) ?? []);
+  const [likedPosts, setLikedPosts] = useLocalStorage("likedPosts", []);
 
   useEffect(() => {
     localStorage.setItem("likedPosts", JSON.stringify(likedPosts));

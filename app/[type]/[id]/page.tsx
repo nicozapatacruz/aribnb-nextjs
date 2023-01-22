@@ -1,12 +1,13 @@
 "use client";
 import PostImages from "@/app/components/PostImages";
 import PostOffers from "@/app/components/PostOffers";
-import { useState, useEffect } from "react";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useEffect } from "react";
 
 import data from "../../db/data";
 
 export default function Post({ params }) {
-  const [likedPosts, setLikedPosts] = useState(JSON.parse(localStorage.getItem("likedPosts")) ?? []);
+  const [likedPosts, setLikedPosts] = useLocalStorage("likedPosts", []);
 
   useEffect(() => {
     localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
