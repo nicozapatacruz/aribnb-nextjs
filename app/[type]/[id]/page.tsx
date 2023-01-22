@@ -15,35 +15,6 @@ export default function Post({ params }) {
 
   const { id: stringId } = params;
 
-  interface PostData {
-    id: number;
-    type: string;
-    location: string;
-    rating: number;
-    guests: number;
-    bedrooms: number;
-    beds: number;
-    baths: number;
-    title: string;
-    subtitle: string;
-    price: number;
-    reviews: number;
-    description: string;
-    wifi: boolean;
-    tv: boolean;
-    washer: boolean;
-    ac: boolean;
-    heating: boolean;
-    breakfast: boolean;
-    freeParking: boolean;
-    refrigerator: boolean;
-    freezer: boolean;
-    dishwasher: boolean;
-    stove: boolean;
-    oven: boolean;
-    coffeeMaker: boolean;
-    url: string;
-  }
   const {
     id,
     type,
@@ -72,7 +43,7 @@ export default function Post({ params }) {
     oven,
     coffeeMaker,
     url,
-  }: PostData = data.find((post) => post.id === parseInt(stringId));
+  } = data.find((post) => post.id === parseInt(stringId));
   return (
     <div className="pt-8">
       <h1 className="text-3xl">
