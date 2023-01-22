@@ -1,12 +1,17 @@
 "use client";
 import Navbar from "@/app/components/Navbar";
 import PostBox from "@/app/components/PostBox";
-import { useGlobalContext } from "../Context/store";
+import { useState, useEffect } from "react";
 
 import data from "../db/data";
 
 export default function LikedPosts() {
-  const { likedPosts, setLikedPosts } = useGlobalContext();
+  const [likedPosts, setLikedPosts] = useState(JSON.parse(localStorage.getItem("likedPosts")) ?? []);
+
+  useEffect(() => {
+    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+  }, [likedPosts]);
+
   const likedData = data.filter((object) => likedPosts.includes(object.id));
   return (
     <>

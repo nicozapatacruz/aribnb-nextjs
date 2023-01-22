@@ -1,12 +1,17 @@
 "use client";
 import PostImages from "@/app/components/PostImages";
 import PostOffers from "@/app/components/PostOffers";
-import { useGlobalContext } from "../../Context/store";
+import { useState, useEffect } from "react";
 
 import data from "../../db/data";
 
 export default function Post({ params }) {
-  const { likedPosts, setLikedPosts } = useGlobalContext();
+  const [likedPosts, setLikedPosts] = useState(JSON.parse(localStorage.getItem("likedPosts")) ?? []);
+
+  useEffect(() => {
+    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+  }, [likedPosts]);
+
   const { id: stringId } = params;
 
   interface PostData {
