@@ -12,8 +12,10 @@ export default function SearchPage() {
   const [likedPosts, setLikedPosts] = useLocalStorage("likedPosts", []);
   const searchParams = useSearchParams();
   const search = searchParams.get("search");
-  const regex = normalizeText(search);
-  const searchData = data.filter((object) => regex.test(normalizeText(object.location)));
+  const searchNorm = normalizeText(search);
+  const searchData = data.filter((object) => {
+    return normalizeText(object.location).includes(searchNorm);
+  });
 
   useEffect(() => {
     localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
