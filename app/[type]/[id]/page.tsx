@@ -16,7 +16,6 @@ export default function Post({ params }) {
   const { id: stringId } = params;
 
   const {
-    id,
     type,
     location,
     rating,
@@ -76,14 +75,16 @@ export default function Post({ params }) {
           className="flex items-center gap-1"
           onClick={(e) => {
             e.preventDefault();
-            likedPosts.includes(id) ? setLikedPosts(likedPosts.filter((post) => post !== id)) : setLikedPosts([...likedPosts, id]);
+            likedPosts.includes(parseInt(stringId))
+              ? setLikedPosts(likedPosts.filter((post) => post !== parseInt(stringId)))
+              : setLikedPosts([...likedPosts, parseInt(stringId)]);
           }}
         >
-          <i className={`${likedPosts.includes(id) ? "fa-solid text-bnb-pink" : "fa-regular"} fa-heart`}></i>
-          <p className="underline">Save{likedPosts.includes(id) ? "d" : null}</p>
+          <i className={`${likedPosts.includes(parseInt(stringId)) ? "fa-solid text-bnb-pink" : "fa-regular"} fa-heart`}></i>
+          <p className="underline">Save{likedPosts.includes(parseInt(stringId)) ? "d" : null}</p>
         </button>
       </div>
-      <PostImages type={type} id={id} />
+      <PostImages type={type} id={parseInt(stringId)} />
       <div className="pt-12 flex justify-between">
         <div className="w-[60%]">
           <h1 className="text-2xl">
