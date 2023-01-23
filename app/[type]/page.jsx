@@ -1,12 +1,14 @@
 "use client";
-import Navbar from "@/app/components/Navbar";
-import TypesNavbar from "@/app/components/TypesNavbar";
-import PostType from "@/app/components/PostType";
-import { useLocalStorage } from "./hooks/useLocalStorage";
-import { useEffect } from "react";
+import Navbar from "../components/Navbar";
+import TypesNavbar from "../components/TypesNavbar";
+import PostType from "../components/PostType";
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [postType, setPostType] = useLocalStorage("postType", "cabins");
+  const pathname = usePathname();
+  const [postType, setPostType] = useState(pathname.replace("/", ""));
   const [likedPosts, setLikedPosts] = useLocalStorage("likedPosts", []);
 
   useEffect(() => {

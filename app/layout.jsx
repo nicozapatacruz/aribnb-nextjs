@@ -6,7 +6,7 @@ const font = Inter({
   weight: ["400", "700"],
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       {/*

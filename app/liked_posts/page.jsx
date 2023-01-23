@@ -1,6 +1,6 @@
 "use client";
-import Navbar from "@/app/components/Navbar";
-import PostBox from "@/app/components/PostBox";
+import Navbar from "../components/Navbar";
+import PostBox from "../components/PostBox";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useEffect } from "react";
 

@@ -1,6 +1,6 @@
 "use client";
-import PostImages from "@/app/components/PostImages";
-import PostOffers from "@/app/components/PostOffers";
+import PostImages from "../../components/PostImages";
+import PostOffers from "../../components/PostOffers";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useEffect } from "react";
 

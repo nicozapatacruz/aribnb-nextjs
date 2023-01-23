@@ -1,4 +1,4 @@
-import PostBox from "@/app/components/PostBox";
+import PostBox from "./PostBox";
 import { use } from "react";
 
 const getData = async () => {
