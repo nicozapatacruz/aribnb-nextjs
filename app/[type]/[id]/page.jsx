@@ -3,11 +3,13 @@ import PostImages from "../../components/PostImages";
 import PostOffers from "../../components/PostOffers";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 import data from "../../db/data";
 
 export default function Post({ params }) {
   const [likedPosts, setLikedPosts] = useLocalStorage("likedPosts", []);
+  const pathname = usePathname();
 
   useEffect(() => {
     localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
@@ -43,7 +45,7 @@ export default function Post({ params }) {
     oven,
     coffeeMaker,
     url,
-  } = data.find((post) => post.id === parseInt(stringId));
+  } = data.find((post) => post.id === parseInt(pathname.split("/")[2]));
   return (
     <div className="pt-8">
       <h1 className="text-3xl">
